@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap");
+
+:root {
+  --bg: #f4efe6;
+  --panel: #fffaf1;
+  --ink: #222124;
+  --accent: #d95f3d;
+  --accent-dark: #ad4223;
+  --muted: #6d635f;
+  --danger: #9f1f1f;
+  --border: #ead9c5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 20%, #f8d8a9 0%, transparent 40%),
+    radial-gradient(circle at 90% 15%, #f3b4a0 0%, transparent 35%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+.page-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.2rem;
+}
+
+.hero {
+  padding: 1.4rem;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  background: linear-gradient(145deg, #fff7ec, #ffe7d4);
+  box-shadow: 0 10px 30px rgba(97, 42, 24, 0.08);
+  animation: rise-in 0.45s ease;
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--accent-dark);
+  margin: 0;
+}
+
+.hero h1 {
+  margin: 0.3rem 0;
+  font-family: "Sora", sans-serif;
+}
+
+.dashboard-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(40, 26, 10, 0.06);
+  animation: rise-in 0.45s ease;
+}
+
+.panel-wide {
+  grid-column: 1 / -1;
+}
+
+.auth-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.stats-grid article {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.stats-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stats-grid strong {
+  font-size: 1.5rem;
+}
+
+.map-wrap {
+  margin-bottom: 1rem;
+}
+
+.map-box {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+input,
+select,
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 0.58rem 0.62rem;
+}
+
+button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: var(--accent-dark);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.link-btn {
+  border: none;
+  background: transparent;
+  color: var(--accent-dark);
+  text-align: left;
+  padding: 0;
+  font-weight: 600;
+}
+
+.link-btn:hover {
+  transform: none;
+  text-decoration: underline;
+  background: transparent;
+}
+
+.muted-btn {
+  background: #dfd7cd;
+  color: #433f3a;
+}
+
+.list-cards {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.list-cards li {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.list-cards p {
+  margin: 0.2rem 0;
+}
+
+.two-col {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.action-row {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.alert-image {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px;
+  margin-top: 0.35rem;
+  border: 1px solid var(--border);
+}
+
+.alert-high,
+.alert-critical {
+  border-left: 5px solid var(--danger);
+}
+
+.error-banner {
+  background: #ffe2de;
+  border: 1px solid #f4afa5;
+  color: #8d2312;
+  border-radius: 10px;
+  padding: 0.7rem;
+}
+
+.loading-overlay {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #202020;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.52rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 920px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-box {
+    height: 260px;
+  }
+}
